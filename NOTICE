@@ -1,0 +1,15 @@
+solidcraft-ipt-importer
+Licensed under the Apache License, Version 2.0 (see LICENSE).
+
+This project builds on:
+
+- cadmpeg (https://github.com/cadmpeg/cadmpeg), Apache-2.0: the Inventor and STEP codecs,
+  pulled from crates.io at build time.
+- zip 9.8.2 (https://github.com/zip-rs/zip2), MIT: vendored in vendor/zip with one change:
+  getrandom's `wasm_js` feature is removed for wasm32 targets (vendor/zip/Cargo.toml).
+  Its licence is vendor/zip/LICENSE.
+- SolidCraft's plugin interface, wit/plugin.wit (https://github.com/tangency-labs/solidcraft,
+  commit e5bc9288, crates/craft-plugin/wit/plugin.wit), Apache-2.0.
+
+Autodesk and Inventor are trademarks of Autodesk, Inc. This project is not affiliated with or
+endorsed by Autodesk or by the SolidCraft project.

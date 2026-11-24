@@ -1,0 +1,5 @@
+# The plugin host links no JavaScript or WASI. zip (through cadmpeg's container reader) turns on
+# getrandom's wasm_js backend, which would import wasm-bindgen; use the custom backend in
+# src/lib.rs instead. Randomness is only used by zip when writing encrypted archives, never here.
+[target.wasm32-unknown-unknown]
+rustflags = ['--cfg', 'getrandom_backend="custom"']

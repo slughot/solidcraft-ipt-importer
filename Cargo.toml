@@ -1,0 +1,31 @@
+[package]
+name = "ipt-importer-src"
+version = "0.1.0"
+edition = "2024"
+
+# A crate of its own, as SolidCraft's box-importer example.
+[workspace]
+
+[dependencies]
+serde_json = "1"
+wit-bindgen = "0.63"
+# Named only to supply the custom backend (see .cargo/config.toml); same version zip pulls in.
+getrandom = "=0.4.3"
+# The cadmpeg SolidCraft 0.48 pins (=0.6.12), with the Inventor codec it leaves out.
+cadmpeg-core = "=0.6.12"
+cadmpeg-ir = "=0.6.12"
+cadmpeg-codec-inventor = "=0.6.12"
+cadmpeg-registry = { version = "=0.6.12", default-features = false, features = ["inventor", "step"] }
+
+[lib]
+crate-type = ["cdylib"]
+
+[profile.release]
+opt-level = "s"
+lto = true
+strip = true
+codegen-units = 1
+
+# zip 9.8.2 with getrandom's wasm_js feature removed (see vendor/zip/Cargo.toml).
+[patch.crates-io]
+zip = { path = "vendor/zip" }

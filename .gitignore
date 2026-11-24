@@ -1,0 +1,7 @@
+/target/
+/dist/
+/plugin/*.wasm
+# Inventor files and the local plugin test cases are not part of the repository.
+*.ipt
+*.iam
+/plugin/tests/

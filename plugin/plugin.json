@@ -1,0 +1,13 @@
+{
+  "id": "ipt-importer",
+  "name": "Inventor Part Importer",
+  "version": "0.1.0",
+  "description": "Opens Autodesk Inventor parts (.ipt): cadmpeg decodes the part's B-rep and SolidCraft's STEP import builds it.",
+  "capabilities": ["formats@0.2"],
+  "runtime": {
+    "module": "ipt-importer.wasm",
+    "commands": [],
+    "entries": [{"name": "convert", "kind": "importer", "extensions": ["ipt"], "label": "Autodesk Inventor part"}],
+    "limits": {"fuel": 100000000000, "memory_mib": 128, "deadline_ms": 300000, "stack_kib": 16384}
+  }
+}
